@@ -1,0 +1,398 @@
+<html>
+
+<head>
+	<title>mikrotik hotspot > logout</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta http-equiv="pragma" content="no-cache" />
+	<meta http-equiv="expires" content="-1" />
+	<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;" />
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	</style>
+</head>
+
+<body>
+	<script language="JavaScript">
+		<!--
+		function openLogin() {
+			if (window.name != 'hotspot_logout') return true;
+			open('$(link-login)', '_blank', '');
+			window.close();
+			return false;
+		}
+		//
+		-->
+	</script>
+
+
+	<section class="pembungkus">
+		<nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #94030c;">
+			<div class="container">
+				<a class="navbar-brand" href="#" id="btnhome"><b>99 SerCell</b></a>
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+					aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+					<div class="navbar-nav">
+						<a class="nav-item nav-link" id="btnpaket" href="#">Paket Harga</a>
+						<a class="nav-item nav-link" id="btnstatus" href="">Login</a>
+					</div>
+				</div>
+			</div>
+		</nav>
+	</section>
+
+	<section class="pembungkus" style="background-image:url('img/bendera1.jpg');height:380px;">
+		<div class="container">
+			<h1 class="text-center" style="padding-top:155px;">
+				<div class="aa" style="color:white;">Dirgahayu</div>
+				<div class="bb" style="color:#c8101c;">Indonesia ku</div>
+				<img class="mt-2" src="img/logo.png" alt="" style="max-width:90px;">
+			</h1>
+		</div>
+	</section>
+
+	<div class="home" id="home">
+		<section class="about pb-5" id="about">
+			<div class="container pt-2">
+				<div class="row text-center">
+					<div class="col-md">
+						<h2>About</h2>
+					</div>
+				</div>
+				<div class="row text-center">
+					<div class="col-md-2"></div>
+					<div class="col-md-4 text-center">
+						<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. A accusamus voluptate,
+							maxime eius rerum labore quibusdam optio ex reiciendis molestiae nostrum praesentium?
+							Natus est consequatur aperiam ullam expedita. Labore, vel?</p>
+					</div>
+					<div class="col-md-4">
+						<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. A accusamus voluptate,
+							maxime eius rerum labore quibusdam optio ex reiciendis molestiae nostrum praesentium?
+							Natus est consequatur aperiam ullam expedita. Labore, vel?</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="contactus pb-5" id="contactus">
+			<div class="container">
+				<div class="row text-center pt-5">
+					<div class="col mb-4">
+						<h2>Contact Us</h2>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-lg-1"></div>
+					<div class="col-lg-4">
+						<div class="card text-white mb-3" style="background-color:#c8101c;max-width:100%;">
+							<div class="card-body">
+								<h5 class="card-title">Primary card title</h5>
+								<p class="card-text">Some quick example text to build on the card title and make up the
+									bulk of the card's content.</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-6">
+						<div class="card">
+							<ul class="list-group list-group-flush">
+								<form>
+									<div class="form-group p-3">
+										<label for="nama">Nama</label>
+										<input type="text" class="form-control" id="nama">
+										<label for="Alamat">Alamat</label>
+										<input type="text" class="form-control" id="alamat">
+										<label for="email">Email</label>
+										<input type="email" class="form-control" id="email">
+										<label for="pesam">Pesan</label>
+										<textarea name="pesan" id="pesan" class="form-control"></textarea>
+										<button type="submit" class="btn mt-2"
+											style="background-color:#c8101c;color:white;">Sign
+											in</button>
+									</div>
+								</form>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</div>
+
+	<div class="status" id="status">
+		<div class="card text-center mb-5" style="width:20rem;margin:0 auto;">
+			<div class="card-body">
+				<form action="$(link-login)" name="login" onSubmit="return openLogin()">
+					<table class="table text-center" style="background-color:#ecf0f1;">
+						<thead>
+							<tr>
+								<th align="right" scope="col" style="background-color:#e74c3c;color:white;">$(username)
+								</th>
+								<th style="background-color:#e74c3c;color:white;">Berhasil LogOut</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td align="right">IP address:</td>
+								<td>$(ip)</td>
+							</tr>
+							<tr>
+								<td align="right">bytes up/down:</td>
+								<td>$(bytes-in-nice) / $(bytes-out-nice)</td>
+							</tr>
+							$(if session-time-left)
+							<tr>
+								<td align="right">time left</td>
+								<td>$(session-time-left)</td>
+							</tr>
+							$(endif)
+							$(if blocked == 'yes')
+							<tr>
+								<td align="right">status:</td>
+								<td>
+									<div style="color: #FF8080">
+										<a href="$(link-advert)" target="hotspot_advert">advertisement</a> required
+									</div>
+								</td>
+								$(elif refresh-timeout)
+							<tr>
+								<td align="right">status refresh:</td>
+								<td>$(refresh-timeout)</td>
+								$(endif)
+
+						</tbody>
+					</table>
+					$(if login-by-mac != 'yes')
+					<br>
+					<!-- user manager link. if user manager resides on other router, replace $(hostname) by its address
+<button onclick="document.location='http://$(hostname)/user?subs='; return false;">status</button>
+<!-- end of user manager link -->
+					$(endif)
+					<button type="submit" value="log in" class="btn btn-danger text-center" data-toggle="modal"
+						data-target="#weaboo" style="width:200px;margin:0 auto;display: block;">Login</button>
+				</form>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="paket" id="paket">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-4 mt-3">
+					<div class="card">
+						<div class="card-body">
+							<table class="table text-center" style="background-color:#ecf0f1;">
+								<thead>
+									<tr>
+										<th scope="col" style="background-color:#e74c3c;">Paket Weaboo</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Kecepatan 10Mbps</td>
+									</tr>
+									<tr>
+										<td>Selama 3 Jam</td>
+									</tr>
+									<tr>
+										<td>Masa aktif voucher 2 hari</td>
+									</tr>
+									<tr>
+										<td>Harga Rp 15.000</td>
+									</tr>
+								</tbody>
+							</table>
+							<button type="button" class="btn btn-danger text-center" data-toggle="modal"
+								data-target="#weaboo" style="width:200px;margin:0 auto;display: block;">Beli</button>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4 mt-3">
+					<div class="card">
+						<div class="card-body">
+							<table class="table text-center" style="background-color:#ecf0f1;">
+								<thead>
+									<tr>
+										<th scope="col" style="background-color:#e74c3c;">Paket Hemat</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Kecepatan 2Mbps</td>
+									</tr>
+									<tr>
+										<td>Selama 6 Jam</td>
+									</tr>
+									<tr>
+										<td>Masa aktif voucher 2 hari</td>
+									</tr>
+									<tr>
+										<td>Harga Rp 5.000</td>
+									</tr>
+								</tbody>
+							</table>
+							<button type="button" class="btn btn-danger text-center" data-toggle="modal"
+								data-target="#hemat" style="width:200px;margin:0 auto;display: block;">Beli</button>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4 mt-3">
+					<div class="card">
+						<div class="card-body">
+							<table class="table text-center" style="background-color:#ecf0f1;">
+								<thead>
+									<tr>
+										<th scope="col" style="background-color:#e74c3c;">Paket Games</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Kecepatan 1Mbps</td>
+									</tr>
+									<tr>
+										<td>Selama 6 Jam</td>
+									</tr>
+									<tr>
+										<td>Masa aktif voucher 2 hari</td>
+									</tr>
+									<tr>
+										<td>Harga Rp 3.000</td>
+									</tr>
+								</tbody>
+							</table>
+							<button type="button" class="btn btn-danger text-center" data-toggle="modal"
+								data-target="#games" style="width:200px;margin:0 auto;display: block;">Beli</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Weboo -->
+		<div class="modal fade" id="weaboo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+			aria-hidden="true">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="exampleModalLabel">Cara Pembelian</h5>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						Ketik Weaboo (spasi) (jumlah yang ingin di beli)<br>
+						Contoh : <b>Weaboo.3</b><br><br>
+						Kirim ke WA <b>085748688232</b><br><br>
+						Untuk metode pembayaran bisa melalui :<br>
+						1. OVO<br>
+						2. Dana<br>
+						3. Rekening<br>
+						4. Datang ke OUTLET terdekat
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Hemat -->
+		<div class="modal fade" id="hemat" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+			aria-hidden="true">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="exampleModalLabel">Cara Pembelian</h5>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						Ketik Hemat (spasi) (jumlah yang ingin di beli)<br>
+						Contoh : <b>Hemat.2</b><br><br>
+						Kirim ke WA <b>085748688232</b><br><br>
+						Untuk metode pembayaran bisa melalui :<br>
+						1. OVO<br>
+						2. Dana<br>
+						3. Rekening<br>
+						4. Datang ke OUTLET terdekat
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Games -->
+		<div class="modal fade" id="games" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+			aria-hidden="true">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="exampleModalLabel">Cara Pembelian</h5>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						Ketik Games (spasi) (jumlah yang ingin di beli)<br>
+						Contoh : <b>Games.1</b><br><br>
+						Kirim ke WA <b>085748688232</b><br><br>
+						Untuk metode pembayaran bisa melalui :<br>
+						1. OVO<br>
+						2. Dana<br>
+						3. Rekening<br>
+						4. Datang ke OUTLET terdekat
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="pembungkus mt-5" style="min-height:80px;background-color:#94030c;">
+		<div class="container pt-4">
+			<div class="row text-center">
+				<div class="col-md text-center footer">
+					<a href="" style="color:white;">Home</a>
+					<a href="" style="color:white;">FAQs</a>
+					<a href="" style="color:white;">About</a>
+					<a href="" style="color:white;">Advertise</a>
+					<a href="" style="color:white;">Contact</a>
+					<a href="" style="color:white;">Arsip</a>
+				</div>
+				<div class="col-md" style="color:white;">
+					<p>© 2019 Kopas<b>Kode</b> Dotaidi | Made with ❤️ Hina & Rui .</p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script src="js/jquery-3.3.1.slim.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script>
+		$('#home').hide();
+		$('#paket').hide();
+		$('#btnhome').click(function () {
+			$('#status').hide();
+			$('#home').show();
+			$('#paket').hide();
+		});
+		$('#btnpaket').click(function () {
+			$('#status').hide();
+			$('#home').hide();
+			$('#paket').show();
+		})
+		$('#btnstatus').click(function () {
+			$('#status').show();
+			$('#home').hide();
+			$('#paket').hide();
+		})
+	</script>
+</body>
+
+</html>
